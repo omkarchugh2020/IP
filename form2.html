@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize Your Own T-shirt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        input[type="button"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        input[type="button"]:hover {
+            background-color: #555;
+        }
+        #error {
+            color: red;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CUSTOMIZE YOUR OWN T-SHIRT</h1>
+    <form>
+        <label for="name">Enter your Name: -
+            <input type="text" id="name">
+        </label>
+        <br>
+        <label for="Age">Enter your Age: -
+            <input type="number" id="Age">
+        </label>
+        <br>
+        <label for="ShippingAddress">Enter your Shipping Address: -
+            <textarea id="ShippingAddress"></textarea>
+        </label>
+        <br>
+        <label for="tagline">Enter Tagline: -
+            <input type="text" id="tagline">
+        </label>
+        <br>
+        <label for="color">Choose The Colour: -
+            <input type="radio" name="color" id="Blue"> Blue
+            <input type="radio" name="color" id="Yellow"> Yellow
+            <input type="radio" name="color" id="Black"> Black
+        </label>
+        <br>
+        <label for="size">Choose The Size: -
+            <select name="size" id="size">
+                <option value="Small">S</option>
+                <option value="Medium">M</option>
+                <option value="Large">L</option>
+                <option value="Extra Large">XL</option>
+            </select>
+        </label>
+        <br>
+        <label for="quantity">Enter quantity: -
+            <input type="number" id="quantity">
+        </label>
+        <br>
+        <label for="deldate">Enter Date to be Delivered: -
+            <input type="Date" id="deldate">
+        </label>
+        <br>
+        <input type="button" onclick="verifyForm()" value="Submit">
+    </form>
+    <p id="error">Check for Errors</p>
+
+    <script>
+        function verifyForm() {
+            // Add your form verification logic here
+            // You can check if the required fields are filled and provide feedback to the user
+            // For a simple example, you can display an error message in the #error paragraph
+
+            const name = document.getElementById("name").value;
+            const age = document.getElementById("Age").value;
+            const shippingAddress = document.getElementById("ShippingAddress").value;
+            const tagline = document.getElementById("tagline").value;
+            const color = document.querySelector('input[name="color"]:checked');
+            const size = document.getElementById("size").value;
+            const quantity = document.getElementById("quantity").value;
+            const deliveryDate = document.getElementById("deldate").value;
+
+            if (!name || !age || !shippingAddress || !tagline || !color || !size || !quantity || !deliveryDate) {
+                document.getElementById("error").style.display = "block";
+                document.getElementById("error").textContent = "Please fill in all the required fields.";
+            } else {
+                // Form is valid, you can proceed with submission or other actions
+                // You may want to submit this data to a server or perform further processing.
+                // For this example, we'll just show an alert.
+                alert("Form submitted successfully!");
+            }
+        }
+    </script>
+</body>
+
+</html>
